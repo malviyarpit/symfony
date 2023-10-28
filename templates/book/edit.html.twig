@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Book{% endblock %}
+
+{% block bread %}
+{% if app.user %}
+-> <a href="{{ path('app_book_show', {book: book.id})}}">Edit</a>
+{% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ include('book/_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Book Store{% endblock %}
+
+{% block body %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+        {% if books|length > 0 %}
+        {% for book in books %}
+            {{ include('book/_book.html.twig', {book: book}) }}
+        {% endfor %}
+        {% else %}
+            There is nothing yet!
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update User{% endblock %}
+
+{% block bread %}
+{% if app.user %}
+-> <a href="{{ path('app_user_show', {user: user.id})}}">Edit</a>
+{% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ include('admin/user/_user.html.twig') }}
+{% endblock %}

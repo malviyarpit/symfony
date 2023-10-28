@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block bread %}
+-> Register
+{% endblock %}
+
+{% block body %}
+    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div>{{ form_errors(registrationForm) }}</div>
+
+    <div>
+    {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'block text-sm text-gray-700 font-medium'}}) }}
+    {{ form_widget(registrationForm.email, { 'attr': {'class': 'block w-full shadow-sm border-gray-300 rounded-md border p-2 mt-1 mb-2'}}) }}
+    {{ form_errors(registrationForm.email) }}
+    </div>
+
+    <div>
+    {{ form_label(registrationForm.password, 'Password', {'label_attr': {'class': 'block text-sm text-gray-700 font-medium'}}) }}
+    {{ form_widget(registrationForm.password, { 'attr': {'class': 'block w-full shadow-sm border-gray-300 rounded-md border p-2 mt-1 mb-2'}}) }}
+    {{ form_errors(registrationForm.password) }}
+    </div>
+    
+    <div class="flex items-center mt-4 mb-4">
+    {{ form_widget(registrationForm.is_author, {'attr': {'class': 'h-4 w-4 rounded border-gray border text-indigo-300 mr-2'}}) }}
+    {{ form_label(registrationForm.is_author, 'Is Author', {'label_attr': {'class': 'text-sm text-gray-700 font-medium'}}) }}
+    </div>
+
+    <div>
+        <button type="submit", class="block w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-700 text-white rounded-md border p-2 mt-4 mb-2">Register!</button>
+    </div>
+    {{ form_end(registrationForm) }}
+
+    <div class="mt-2 text-center text-gray-600">
+        Already have an account? <a href={{ path('app_login') }}>Login Here</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<div class="mb-4">
+<div class="text-2xl">
+<a href="{{ path('app_book_show', { book: book.id }) }}">
+    {{ book.title }}
+</a>
+</div>
+
+<div class="text-xl">
+    {{ book.text }}
+</div>
+
+<div class="text-gray-500">
+    {{ book.created| date("M j, Y")}}
+</div>
+
+{# <div>
+    <a href="{{ path('app_book_show', { book: book.id }) }}">
+    Comment <span class="px-2 rounded-md bg-gray-200">0</span>
+</div> #}
+
+<div class="text-sm text-gray-500">
+    <a href="#">{{ book.author.email }}</a>
+</div>
+<div class="flex">
+    {% if app.user %}
+    <a href="{{ path('app_book_edit', {book: book.id}) }}" class="mr-2">Edit</a>
+    {# <a href="{{ path('app_book_delete', {book: book.id}) }}" class="mr-2">Delete</a> #}
+    {% endif %}
+    <a href="{{ path('app_book_comment', {book: book.id}) }}">Comment <span class="px-1 rounded-md bg-gray-200">{{ book.comments.count }}</span></a> 
+</div>
+</div>
